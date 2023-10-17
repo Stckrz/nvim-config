@@ -180,6 +180,15 @@ require('lazy').setup({
     opts = {},
   },
 
+{
+    '2kabhishek/nerdy.nvim',
+    dependencies = {
+        'stevearc/dressing.nvim',
+        'nvim-telescope/telescope.nvim',
+    },
+    cmd = 'Nerdy',
+},
+
   
 
 --{
@@ -237,11 +246,11 @@ require('lazy').setup({
                    [[ \/_/\/_/\/____/\/___/  \/__/    \/_/\/_/\/_/\/_/]],
          }
          dashboard.section.buttons.val = {
-             dashboard.button( "e", "📁 > New file" , ":ene <BAR> startinsert <CR>"),
-             dashboard.button( "f", "🔎 > Find file", ":cd $HOME/Desktop/javascript | Telescope find_files<CR>"),
-             dashboard.button( "r", "🔄 > Recent"   , ":Telescope oldfiles<CR>"),
-             dashboard.button( "s", "⚙️  > Settings" , ":e $MYVIMRC | :cd %:p:h | wincmd k | pwd<CR>"),
-             dashboard.button( "q", "❌ > Quit NVIM", ":qa<CR>"),
+             dashboard.button( "e", " > New file" , ":ene <BAR> startinsert <CR>"),
+             dashboard.button( "f", " > Find file", ":cd $HOME/Desktop/javascript | Telescope find_files<CR>"),
+             dashboard.button( "r", "󰑓 > Recent"   , ":Telescope oldfiles<CR>"),
+             dashboard.button( "s", "  > Settings" , ":e $MYVIMRC | :cd %:p:h | wincmd k | pwd<CR>"),
+             dashboard.button( "q", "󰩈 > Quit NVIM", ":qa<CR>"),
 
 }
          local handle = io.popen('fortune')
@@ -256,7 +265,6 @@ require('lazy').setup({
          alpha.setup(dashboard.config)
      end
  },
-
 
   -- "gc" to comment visual regions/lines
   { 'numToStr/Comment.nvim', opts = {} },
@@ -321,7 +329,8 @@ require('lazy').setup({
 -- [[ Setting options ]]
 -- See `:help vim.o`
 -- NOTE: You can change these options as you wish!
---
+
+vim.o.guifont= "FiraCode Nerd Font" 
 
 vim.opt["tabstop"] = 4
 vim.opt["shiftwidth"] = 4
