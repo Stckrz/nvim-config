@@ -71,8 +71,6 @@ require('lazy').setup({
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
 
-  -- Detect tabstop and shiftwidth automatically
-  --'tpope/vim-sleuth',
 
   -- NOTE: This is where your plugins related to LSP can be installed.
   --  The configuration is done below. Search for lspconfig to find it below.
@@ -192,13 +190,6 @@ require('lazy').setup({
 --  end,
 --},
 --
---{
---    'goolord/alpha-nvim',
---    dependencies = { 'nvim-tree/nvim-web-devicons' },
---    config = function ()
---        require'alpha'.setup(require'alpha.themes.startify'.config)
---    end
---},
  {
      "goolord/alpha-nvim",
      config = function ()
@@ -299,6 +290,18 @@ require('lazy').setup({
     },
     build = ':TSUpdate',
   },
+  
+  --Allows 'surround' functionality for most tags/symbols/etc..
+{
+    "kylechui/nvim-surround",
+    version = "*", -- Use for stability; omit to use `main` branch for the latest features
+    event = "VeryLazy",
+    config = function()
+        require("nvim-surround").setup({
+            -- Configuration here, or leave empty to use defaults
+        })
+    end
+};
 
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.
