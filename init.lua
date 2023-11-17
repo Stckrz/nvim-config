@@ -296,8 +296,25 @@ require('lazy').setup({
     end
   },
 
-  -- "gc" to comment visual regions/lines
-  { 'numToStr/Comment.nvim', opts = {} },
+  -- "gc" to comment visual regions/lines    -- "gc" to comment visual regions/lines
+    {
+        'numToStr/Comment.nvim',
+        opts = {},
+        dependencies = {
+            'JoosepAlviste/nvim-ts-context-commentstring',
+        },
+        config = function()
+            require('Comment').setup {
+                pre_hook = require('ts_context_commentstring.integrations.comment_nvim').create_pre_hook(),
+            }
+            require('ts_context_commentstring').setup {
+                context_commentstring = {
+                    enable = true,
+                    enable_autocmd = false,
+                },
+            }
+        end
+    },
 
   -- Fuzzy Finder (files, lsp, etc)
   {
@@ -338,6 +355,13 @@ require('lazy').setup({
       require("nvim-surround").setup({
         -- Configuration here, or leave empty to use defaults
       })
+    end
+  },
+  
+  {
+    "ggandor/leap.nvim",
+    config=function()
+      require('leap').add_default_mappings()
     end
   },
 
